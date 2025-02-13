@@ -1,3 +1,6 @@
-from .database import *
-from .environs import *
-from .news import *
+from .database import Base
+from .database import async_session_maker
+__all__ = [
+    "async_session_maker",
+    "Base",
+]

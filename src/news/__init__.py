@@ -5,3 +5,8 @@ from .schemas import (CategoryCreate,
                       NewsCreate,
                       NewsRead,NewsItemRead,)
 
+__all__ = [
+    "category_router",
+    "news_router",
+]
+

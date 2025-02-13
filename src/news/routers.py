@@ -2,6 +2,7 @@ from typing import Sequence
 
 from fastapi import APIRouter, HTTPException
 from sqlalchemy import select
+from src.database import async_session_maker
 
 from .models import Category, News
 from .schemas import (CategoryCreate, 
@@ -9,7 +10,7 @@ from .schemas import (CategoryCreate,
                       NewsCreate,
                       NewsRead,NewsItemRead,)
 
-from src import session as async_session
+
 
 category_router = APIRouter(
     prefix="/categories",
@@ -63,7 +64,7 @@ async def create_news_item(news_item: NewsCreate) -> News:
 
         new_news_item = News(**news_item.dict(), category=category)
         session.add(new_news_item)
-        
+
         await session.commit()
         await session.refresh(new_news_item)
         return new_news_item
