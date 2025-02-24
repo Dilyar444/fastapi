@@ -3,7 +3,7 @@ from typing import Sequence
 from fastapi import HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src import DBManager
+from src.manager import DBManager
 
 from ..models import Comment, News, User
 
@@ -55,7 +55,7 @@ class CommentService:
         user: User
     ) -> Comment:
         # Проверка существования новости
-        if not await DBManager.exists(db, News, "id", comment_data["news_id"]):
+        if not await DBManager.get_object(db, News, "id", comment_data["news_id"]):
             raise HTTPException(status_code=404, detail="News not found")
 
         comment_data["user_id"] = user.id
