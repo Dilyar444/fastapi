@@ -10,7 +10,9 @@ from sqlalchemy.orm import DeclarativeBase
 
 from .environs import *
 
-DATABASE_URL = f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+SQLALCHEMY_DATABASE_URL = "postgresql+asyncpg://postgres:123456@localhost:5432/postgres"
+DATABASE_URL = SQLALCHEMY_DATABASE_URL
+
 
 engine = create_async_engine(url=DATABASE_URL)
 async_session_maker = async_sessionmaker(bind=engine, expire_on_commit=True)

@@ -25,7 +25,7 @@ class CommentService:
             model=Comment,
             offset=offset,
             limit=limit,
-            filter_by={"news_id": news_id}
+            filters={"news_id": news_id}
         )
 
     @classmethod
