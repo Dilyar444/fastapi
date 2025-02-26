@@ -35,11 +35,6 @@ htmlcov/
 .idea/
 *.iml
 
-# Docker и контейнеры (если используешь)
-*.dockerfile
-docker-compose.yml
-.dockerignore
-
 # Сборочные файлы (если вдруг решишь собирать пакет)
 build/
 dist/

@@ -10,7 +10,7 @@ from sqlalchemy.orm import DeclarativeBase
 
 from .environs import *
 
-SQLALCHEMY_DATABASE_URL = "postgresql+asyncpg://postgres:123456@localhost:5432/postgres"
+SQLALCHEMY_DATABASE_URL = f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 DATABASE_URL = SQLALCHEMY_DATABASE_URL
 
 
